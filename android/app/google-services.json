@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "793397658289",
+    "firebase_url": "https://call-car-acd76.firebaseio.com",
+    "project_id": "call-car-acd76",
+    "storage_bucket": "call-car-acd76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793397658289:android:9ce5554d607eb5ed839890",
+        "android_client_info": {
+          "package_name": "com.diamond.appfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793397658289-no96g3hn4p7e0novpmiep7gcgfk3e8u4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJhOr1jc9NYPYl2EftqDpJ5AKT4rLerdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793397658289-no96g3hn4p7e0novpmiep7gcgfk3e8u4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793397658289:android:4f002f7a0b15a76c839890",
+        "android_client_info": {
+          "package_name": "com.example.appdatxe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "793397658289-no96g3hn4p7e0novpmiep7gcgfk3e8u4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJhOr1jc9NYPYl2EftqDpJ5AKT4rLerdQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "793397658289-no96g3hn4p7e0novpmiep7gcgfk3e8u4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
