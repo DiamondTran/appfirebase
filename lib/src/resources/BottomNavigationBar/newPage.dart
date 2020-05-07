@@ -22,7 +22,7 @@ class _newPageFood extends State<NewPageFood>{
                   right: 0,
                   child: Container(
                     height:  MediaQuery.of(context).size.height/ 2.2,
-                    child:   HeaerderNewPage(),
+                    child: HeaerderNewPage(),
 
                   )),
 

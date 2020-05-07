@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:appfirebase/src/model/foodAdress.dart';
 import 'package:appfirebase/src/resources/foodDetail.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +75,7 @@ class _smoothie extends State<Smoothie>{
       String date,
       FoodAdress foodAdress,
       BuildContext context) {
+    String resht= "https";
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -105,9 +108,9 @@ class _smoothie extends State<Smoothie>{
                   height: MediaQuery.of(context).size.height / 4.8,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(url == ""
+                          image:url.contains(resht) ? NetworkImage(url == ""
                               ? "https://i.ytimg.com/vi/3eIWZPxZJjY/maxresdefault.jpg"
-                              : url),
+                              : url) : MemoryImage(base64.decode(url)),
                           fit: BoxFit.cover),
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(15),
@@ -187,7 +190,7 @@ class _smoothie extends State<Smoothie>{
             data[key]['time']));
       }
       setState(() {
-        print(listfood.length);
+
       });
     });
   }

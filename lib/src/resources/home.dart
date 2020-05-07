@@ -7,6 +7,7 @@ import 'package:appfirebase/src/resources/widget/home_page.dart';
 import 'package:appfirebase/src/resources/widget/profile.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -36,9 +37,21 @@ class _MyHomePageState extends State<MyHomePage> {
           colo2= Colorappar;
         });
     }
+  Future<bool> _onbackPress(){
+    return showDialog(context: context,
+        builder: (context)=> AlertDialog(
+          title: Text("Bạn có chắc chắc muốn thoái ứng dụng?"),
+          actions: <Widget>[
+            FlatButton(onPressed: ()=> Navigator.pop(context, false), child: Text("Không")),
+            FlatButton(onPressed: ()=> SystemNavigator.pop(), child: Text("Thoát")),
+
+          ],
+        )
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(child: Scaffold(
       key: _scaffoldKey,
       body: Container(
         constraints: BoxConstraints.expand(),
@@ -84,65 +97,65 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: Drawer(
           child: ListView(
-        children: <Widget>[
-          ListTile(
-            leading: Icon(Icons.account_box),
-            onTap: () {
-              selectOption(0, "Home", Colors.white, Colors.transparent);
-              Navigator.pop(context);
-            },
-            title: Text(
-              "Home",
-              style: TextStyle(fontSize: 18, color: Color(0xff323643)),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.pin_drop,color: Colors.lightBlue),
-            onTap: () {
-              selectOption(1, "Thêm một địa chỉ mới", Colors.white,Colors.brown.withOpacity(.8));
-              Navigator.pop(context);
-            },
-            title: Text(
-              "Thêm địa điểm ăn",
-              style: TextStyle(fontSize: 18, color: Color(0xff323643)),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.account_box),
-            onTap: () {
-              selectOption(2, "Profile", Colors.black, Colors.grey);
-              Navigator.pop(context);
-            },
-            title: Text(
-              "Profile",
-              style: TextStyle(fontSize: 18, color: Color(0xff323643)),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.map),
-            onTap: () {
-              selectOption(3, "Store Food", Colors.black, Colors.transparent);
-              Navigator.pop(context);
-            },
-            title: Text(
-              "Location store food",
-              style: TextStyle(fontSize: 18, color: Color(0xff323643)),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.exit_to_app),
-            onTap: () {
-              auth.logout();
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.account_box),
+                onTap: () {
+                  selectOption(0, "Home", Colors.white, Colors.transparent);
+                  Navigator.pop(context);
+                },
+                title: Text(
+                  "Home",
+                  style: TextStyle(fontSize: 18, color: Color(0xff323643)),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.pin_drop,color: Colors.lightBlue),
+                onTap: () {
+                  selectOption(1, "Thêm một địa chỉ mới", Colors.white,Colors.brown.withOpacity(.8));
+                  Navigator.pop(context);
+                },
+                title: Text(
+                  "Thêm địa điểm ăn",
+                  style: TextStyle(fontSize: 18, color: Color(0xff323643)),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.account_box),
+                onTap: () {
+                  selectOption(2, "Profile", Colors.black, Colors.grey);
+                  Navigator.pop(context);
+                },
+                title: Text(
+                  "Profile",
+                  style: TextStyle(fontSize: 18, color: Color(0xff323643)),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.map),
+                onTap: () {
+                  selectOption(3, "Store Food", Colors.black, Colors.transparent);
+                  Navigator.pop(context);
+                },
+                title: Text(
+                  "Location store food",
+                  style: TextStyle(fontSize: 18, color: Color(0xff323643)),
+                ),
+              ),
+              ListTile(
+                leading: Icon(Icons.exit_to_app),
+                onTap: () {
+                  auth.logout();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
 
-            },
-            title: Text(
-              "Đăng xuất",
-              style: TextStyle(fontSize: 18, color: Color(0xff323643)),
-            ),
-          ),
-        ],
-      )),
-    );
+                },
+                title: Text(
+                  "Đăng xuất",
+                  style: TextStyle(fontSize: 18, color: Color(0xff323643)),
+                ),
+              ),
+            ],
+          )),
+    ), onWillPop: _onbackPress);
   }
 }
